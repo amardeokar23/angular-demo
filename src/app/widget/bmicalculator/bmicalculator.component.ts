@@ -13,7 +13,12 @@ export class BmicalculatorComponent {
 
   constructor() { }
 
+  setWeight(weight: string) {
+    this.weight = parseFloat(weight);
+  }
+
   calculateBMI() {
+    console.log("weight: ", this.weight, "height: ", this.height);
     this.bmiIndex = (this.weight / (this.height * this.height));
   }
 }

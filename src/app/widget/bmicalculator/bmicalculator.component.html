@@ -1,11 +1,16 @@
+<h3>BMI Calculator</h3>
 <div>
-  <span>Weight : <input [(ngModel)]="weight"/> Kg</span>
+  <!-- Get input using Template reference variable #weightTextBox -->
+  <div>Weight : </div>
+  <input type="text" #weightTextBox value="0" (input)="setWeight(weightTextBox.value)"/> Kg
 </div>
 <div>
-  <span>Height : <input [(ngModel)]="height"/> Meter</span>
+  <!-- Get input using ngModel -->
+  <div>Height : </div>
+  <input [(ngModel)]="height"/> Meter
 </div>
 <div>
-  <button (click) = "calculateBMI()"> Calculate BMI </button>
+  <button (click) = "calculateBMI()" style="margin-top:10px"> Calculate BMI </button>
 </div>
 <div>
   <span> BMI Index is : {{ bmiIndex }}</span>
