@@ -1,17 +1,21 @@
 <h3>BMI Calculator</h3>
 <div>
-  <!-- Get input using Template reference variable #weightTextBox -->
+  <!-- Get input using Template reference variable #weightTextBox and event (input)-->
+  <!-- Set value in text box using property binding [value] -->
   <div>Weight : </div>
-  <input type="text" #weightTextBox value="0" (input)="setWeight(weightTextBox.value)"/> Kg
+  <input type="text" #weightTextBox value="0" (input)="setWeight(weightTextBox.value)" [value]="weight" /> Kg
 </div>
 <div>
   <!-- Get input using ngModel -->
+  <!-- Set value in text box using variable binding [value] -->
   <div>Height : </div>
   <input [(ngModel)]="height"/> Meter
 </div>
 <div>
-  <button (click) = "calculateBMI()" style="margin-top:10px"> Calculate BMI </button>
+  <button (click) = "calculateBMI()"> Calculate BMI </button>
+  <button (click) = "clear()"> Clear </button>
 </div>
 <div>
+  <!-- Display value of class variable using string interpolation -->
   <span> BMI Index is : {{ bmiIndex }}</span>
 </div>

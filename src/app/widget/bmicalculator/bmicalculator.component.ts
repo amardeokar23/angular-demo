@@ -21,4 +21,9 @@ export class BmicalculatorComponent {
     console.log("weight: ", this.weight, "height: ", this.height);
     this.bmiIndex = (this.weight / (this.height * this.height));
   }
+
+  clear() {
+    this.weight = 0;
+    this.height = 0;
+  }
 }
