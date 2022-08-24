@@ -1,0 +1,31 @@
+<h3>Login</h3>
+<form #loginForm="ngForm" (ngSubmit)="login(loginForm.form)">
+  
+  <!-- Get/Set value from & to inputbox using ngModel -->
+  <p>
+    Username :
+    <input type="text" name="usernameTextbox" #usernameFormControl="ngModel" [(ngModel)]="username" 
+        required
+    />
+  </p>
+  <div *ngIf="usernameFormControl.errors && (usernameFormControl.dirty || usernameFormControl.touched)">
+    <output *ngIf="usernameFormControl.errors['required']"> Username is required </output>
+  </div>
+
+  <!-- Get/Set value from & to inputbox using ngModel -->
+  <p>
+    Password :
+    <input type="password" name="passwordTextbox" #passwordFormControl="ngModel" [(ngModel)]="password" 
+        minlength="8" required
+    />
+  </p>
+  <div *ngIf="passwordFormControl.errors && (passwordFormControl.dirty || passwordFormControl.touched)">
+    <output *ngIf="passwordFormControl.errors['required']"> Password is required </output>
+    <output *ngIf="passwordFormControl.errors['minlength']"> Password should be 8 character long </output>
+  </div>
+  <!--Validation can be skipped with formnovalidate attribute of HTML -->
+  <input type="submit" value="Login" />
+  <button (click) = "clear()"> Clear </button>
+</form>
+
+
